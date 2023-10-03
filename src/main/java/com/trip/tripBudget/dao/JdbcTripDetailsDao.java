@@ -18,11 +18,11 @@ public class JdbcTripDetailsDao implements TripDetailsDao{
         TripDetails tripDetails = null;
 
        String sql = "SELECT * FROM trips " +
-               "join trip_flight ON trips.trip_id = trip_flight.trip_id " +
-               "join trip_hotel ON trips.trip_id = trip_hotel.trip_id " +
-               "join hotels ON trip_hotel.hotel_id = hotels.hotel_id " +
-               "join flights ON trip_flight.flight_id = flights.flight_id " +
-               "where trips.trip_id= ?;";
+               "JOIN trip_flight ON trips.trip_id = trip_flight.trip_id " +
+               "JOIN trip_hotel ON trips.trip_id = trip_hotel.trip_id " +
+               "JOIN hotels ON trip_hotel.hotel_id = hotels.hotel_id " +
+               "JOIN flights ON trip_flight.flight_id = flights.flight_id " +
+               "WHERE trips.trip_id= ?;";
 
        try {
 
@@ -36,6 +36,16 @@ public class JdbcTripDetailsDao implements TripDetailsDao{
         }
 
        return tripDetails;
+    }
+
+    @Override
+    public void deleteTripById(int id) {
+        String deleteFromTripFlight = "DELETE FROM trip_flight WHERE trip_id = ?;";
+        String deleteFromTripHotel = "DELETE FROM trip_hotel WHERE trip_id = ?;";
+        String deleteFromTrips = "DELETE FROM trips WHERE trip_id = ?;";
+        jdbcTemplate.update(deleteFromTripFlight, id);
+        jdbcTemplate.update(deleteFromTripHotel, id);
+        jdbcTemplate.update(deleteFromTrips, id);
     }
 
     private TripDetails mapRowToTripDetails(SqlRowSet results){

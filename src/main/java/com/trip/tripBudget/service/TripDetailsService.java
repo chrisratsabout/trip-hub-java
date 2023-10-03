@@ -13,4 +13,8 @@ public class TripDetailsService {
     public TripDetails getTripDetailsById(int id) {
         return jdbcTripDetailsDao.getTripDetailsById(id);
     }
+
+    public void deleteTripById(int id) {
+        jdbcTripDetailsDao.deleteTripById(id);
+    }
 }
