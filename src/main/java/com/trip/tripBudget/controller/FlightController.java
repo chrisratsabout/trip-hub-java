@@ -30,9 +30,9 @@ public class FlightController {
         return flightService.addFlight(flight, tripId);
     }
 
-    @PutMapping("/update")
-    public Flight updateFlight(@RequestBody Flight flight){
-        return flightService.updateFlight(flight);
+    @PutMapping("/update/{flightId}")
+    public Flight updateFlight(@RequestBody Flight flight,@PathVariable int flightId ){
+        return flightService.updateFlight(flight, flightId);
     }
 
     @DeleteMapping("/{id}")

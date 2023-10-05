@@ -12,7 +12,7 @@ public interface FlightDao {
 
     public Flight addFlight(Flight flight, int id);
 
-    public Flight updateFlight(Flight flight);
+    public Flight updateFlight(Flight flight, int flightId);
 
     public void deleteFlightById(int id);
 

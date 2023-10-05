@@ -78,7 +78,7 @@ public class JdbcHotelDao implements HotelDao{
     }
 
     @Override
-    public Hotel updateHotel(Hotel hotel) {
+    public Hotel updateHotel(Hotel hotel, int hotelId) {
         Hotel updatedHotel = null;
 
         String sql = "UPDATE hotels SET hotel_price = ?, check_in_date = ?, checkout_date = ?, hotel_name = ?, number_of_nights = ? " +

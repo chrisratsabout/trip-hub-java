@@ -22,7 +22,8 @@ public class JdbcTripDetailsDao implements TripDetailsDao{
                "JOIN trip_hotel ON trips.trip_id = trip_hotel.trip_id " +
                "JOIN hotels ON trip_hotel.hotel_id = hotels.hotel_id " +
                "JOIN flights ON trip_flight.flight_id = flights.flight_id " +
-               "WHERE trips.trip_id= ?;";
+               "WHERE trips.trip_id= ? " +
+               "ORDER BY flights.flight_id, hotels.hotel_id DESC LIMIT 1;";
 
        try {
 
@@ -54,11 +55,13 @@ public class JdbcTripDetailsDao implements TripDetailsDao{
         tripDetails.setTripName(results.getString("trip_name"));
         tripDetails.setStartDate(results.getDate("start_date").toLocalDate());
         tripDetails.setEndDate(results.getDate("end_date").toLocalDate());
+        tripDetails.setHotelId(results.getInt("hotel_id"));
         tripDetails.setHotelName(results.getString("hotel_name"));
         tripDetails.setCheckInDate(results.getDate("check_in_date").toLocalDate());
         tripDetails.setCheckOutDate(results.getDate("checkout_date").toLocalDate());
         tripDetails.setNumberOfNights(results.getInt("number_of_nights"));
         tripDetails.setHotelPrice(results.getBigDecimal("hotel_price"));
+        tripDetails.setFlightId(results.getInt("flight_id"));
         tripDetails.setDepartingFrom(results.getString("departing_from"));
         tripDetails.setArrivalTo(results.getString("arrival_to"));
         tripDetails.setDepartureDate(results.getDate("departure_date").toLocalDate());

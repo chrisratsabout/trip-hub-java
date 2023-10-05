@@ -31,7 +31,7 @@ public class HotelService {
         jdbcHotelDao.deleteHotelById(id);
     }
 
-    public Hotel updateHotel(Hotel hotel) {
-        return jdbcHotelDao.updateHotel(hotel);
+    public Hotel updateHotel(Hotel hotel, int hotelId) {
+        return jdbcHotelDao.updateHotel(hotel, hotelId);
     }
 }

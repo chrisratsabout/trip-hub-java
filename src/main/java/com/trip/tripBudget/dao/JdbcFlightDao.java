@@ -75,7 +75,7 @@ public class JdbcFlightDao implements FlightDao {
     }
 
     @Override
-    public Flight updateFlight(Flight flight) {
+    public Flight updateFlight(Flight flight, int flightId) {
         Flight updatedFlight = null;
 
         String sql = "UPDATE flights SET flight_price = ?, departure_date = ?, return_date = ?, departing_from = ?, arrival_to = ? " +

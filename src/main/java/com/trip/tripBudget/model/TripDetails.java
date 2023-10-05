@@ -18,11 +18,13 @@ public class TripDetails {
     private String tripName;
     private LocalDate startDate;
     private LocalDate endDate;
+    private Integer hotelId;
     private String hotelName;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private Integer numberOfNights;
     private BigDecimal hotelPrice;
+    private Integer flightId;
     private String departingFrom;
     private String arrivalTo;
     private LocalDate departureDate;

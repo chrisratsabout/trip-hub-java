@@ -30,7 +30,7 @@ public class FlightService {
         jdbcFlightDao.deleteFlightById(id);
     }
 
-    public Flight updateFlight(Flight flight) {
-        return jdbcFlightDao.updateFlight(flight);
+    public Flight updateFlight(Flight flight, int flightId) {
+        return jdbcFlightDao.updateFlight(flight, flightId);
     }
 }

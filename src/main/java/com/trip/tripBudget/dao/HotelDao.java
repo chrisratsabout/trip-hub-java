@@ -11,7 +11,7 @@ public interface HotelDao {
 
     public Hotel addHotel(Hotel hotel, int tripId);
 
-    public Hotel updateHotel(Hotel hotel);
+    public Hotel updateHotel(Hotel hotel, int hotelId);
 
     public void deleteHotelById(int id);
 }

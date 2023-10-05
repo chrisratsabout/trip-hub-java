@@ -29,9 +29,9 @@ public class HotelController {
         return hotelService.addHotel(hotel, tripId);
     }
 
-    @PutMapping("/update")
-    public Hotel updateHotel(@RequestBody Hotel hotel){
-        return hotelService.updateHotel(hotel);
+    @PutMapping("/update/{hotelId}")
+    public Hotel updateHotel(@RequestBody Hotel hotel, @PathVariable int hotelId){
+        return hotelService.updateHotel(hotel, hotelId);
     }
 
     @DeleteMapping("/{id}")
